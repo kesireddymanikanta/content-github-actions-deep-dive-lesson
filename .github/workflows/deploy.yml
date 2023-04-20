@@ -52,7 +52,7 @@ jobs:
     needs: build
     steps:
       - name: Create Release
-        id: Create_Release
+        id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
@@ -71,7 +71,7 @@ jobs:
         env : 
           GITHUB_TOKEN: ${{ github.token }}
         with:
-          upload_url: ${{ steps.outputs.Create_Release.upload_url }}
+          upload_url: ${{ steps.outputs.create_release.upload_url }}
           asset_path: ./${{ github.sha }}.zip
           asset_name: source_code_with_libraries.zip
           asset_content_type: application/zip
