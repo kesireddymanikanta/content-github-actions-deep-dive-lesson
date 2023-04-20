@@ -75,7 +75,7 @@ jobs:
         env : 
           GITHUB_TOKEN: ${{ github.token }}
         with:
-          upload_url: ${{ steps.outputs.create_release.upload_url }}
+          upload_url: manikanta_final_release
           asset_path: ./${{ github.sha }}.zip
           asset_name: source_code_with_libraries.zip
           asset_content_type: application/zip
