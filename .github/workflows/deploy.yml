@@ -1,6 +1,7 @@
 name: Deploy Lambda Function
 on: 
   workflow_dispatch:
+permissions: write-all
 env:
   package: mani  
 
