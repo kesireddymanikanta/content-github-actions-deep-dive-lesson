@@ -40,12 +40,12 @@ jobs:
     - name: Zip Bundle
       run: |
         cd function
-        #zip -r ../${{ github.sha }}.zip .
+        zip -r ../${{ github.sha }}.zip .
     - name: Archieve artifact
       uses: actions/upload-artifact@v2
       with:
         name: zipped-bundle
-        path: ${{ env.package }}
+        path: ${{ github.sha }}.zip
 
 
       
