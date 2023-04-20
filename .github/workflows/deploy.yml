@@ -46,8 +46,21 @@ jobs:
       with:
         name: zipped-bundle
         path: ${{ github.sha }}.zip
-
-
+  publish:  
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Create Release
+        id: Create_Release
+        uses: actions/release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.github_token }}
+        with: 
+          tag_name: ${{ github.run_number }}
+          release_name: ManiRelease ${{ github.run_number }}
+          body: New release for $my first GHA. Release notes can be found in the docs.
+          draft: false
+          prerelease: false
       
 
     
