@@ -66,6 +66,10 @@ jobs:
         uses: actions/download-artifact@v2
         with: 
           name: zipped-bundle
+      - name: test
+        shell: bash
+        run: |
+          echo "${{ steps.outputs.create_release.upload_url }}"
       - name: Upload release asset
         uses: actions/upload-release-asset@v1
         env : 
